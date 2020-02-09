@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<h:dataTable value="#{gestionFerreteriaBean.proveedores}" var="proveedor" >
+	<h:column>
+		<f:facet name="header">IdProducto</f:facet>
+		#{proveedor.id_producto}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Nombre Proveedor</f:facet>
+		#{proveedor.nombre_producto}
+	</h:column>
+	<h:column>
+		<f:facet name="header">Stock</f:facet>
+		#{proveedor.stock_producto}
+	</h:column>
+		<h:column>
+		<f:facet name="header">Id Proveedor</f:facet>
+		#{proveedor.id_proveedor}
+	</h:column>
+	
+	<h:column>
+	<h:form>
+	<h:inputText value="#{gestionFerreteriaBean.numped}"/>
+    <h:commandButton action="#{gestionFerreteriaBean.Pedidos(proveedor.id_producto, proveedor.id_proveedor)}" value="Solicitar Pedidos"/>
+	</h:form>
+	
+				
+	</h:column>
+	
+</h:dataTable>
+</h:form>
+</body> 
+</html>
